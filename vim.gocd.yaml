@@ -8,10 +8,10 @@ pipelines:
       REPODIR: vim
     materials:
       vim-pr:
+        auto_update: false
         plugin_configuration:
           id: github.pr
           version: 1
-          auto_update: false
         options:
           url: https://github.com/igno/vim.git
         destination: "#{REPODIR}"
