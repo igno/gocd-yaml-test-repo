@@ -1,0 +1,29 @@
+format_version: 9
+
+pipelines:
+  vim-PR:
+    group: Testgroup
+    lock_behavior: none
+    parameters:
+      REPODIR: vim
+    materials:
+      vim-pr:
+        plugin_configuration:
+          id: github.pr
+          version: 1
+          auto_update: false
+        options:
+          url: https://github.com/igno/vim.git
+        destination: "#{REPODIR}"
+    stages:
+      - test:
+          clean_workspace: true
+          jobs:
+            test:
+              tasks:
+                - exec:
+                    command: sh
+                    arguments:
+                      - -c
+                      - echo "test"
+
